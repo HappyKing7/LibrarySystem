@@ -78,8 +78,8 @@ public class AuthorController {
             })
     @PostMapping("/insertAuthorInfo")
     @ResponseBody
-    public Result insertAuthorInfo(@RequestBody Map map,@RequestParam(value = "authorID") String authorID,
-                                   @RequestParam(value = "authorName") String authorName)
+    public Result insertAuthorInfo(@RequestBody Map map,@RequestParam(value = "authorID",required = false) String authorID,
+                                   @RequestParam(value = "authorName",required = false) String authorName)
     {
         Log log = new Log();
         AuthorInfo ai = new AuthorInfo();
@@ -123,7 +123,7 @@ public class AuthorController {
             })
     @RequestMapping("/deleteAuthorInfo")
     @ResponseBody
-    public Result deleteAuthorInfo(@RequestBody Map map,@RequestParam(value = "authorID") String authorID1)
+    public Result deleteAuthorInfo(@RequestBody Map map,@RequestParam(value = "authorID",required = false) String authorID1)
     {
         Log log = new Log();
         String authorID = "";

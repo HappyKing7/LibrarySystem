@@ -167,7 +167,7 @@ public class BookController {
             })
     @PostMapping("/deleteBookInfo")
     @ResponseBody
-    public Result deleteBookInfo(@RequestBody Map map,@RequestParam(value = "bookID") String bookID1){
+    public Result deleteBookInfo(@RequestBody Map map,@RequestParam(value = "bookID",required = false) String bookID1){
         Log log = new Log();
         Result result =new Result();
         String bookID = "";
@@ -325,11 +325,11 @@ public class BookController {
             })
     @PostMapping("/borrowedBook")
     @ResponseBody
-    public Result borrowedBook(@RequestBody Map map,@RequestParam(value = "bookID") String bookID1,
-                               @RequestParam(value = "userID") String userID1,
-                               @RequestParam(value = "num") Integer num1,
-                               @RequestParam(value = "borrowedNumber") Integer borrowedNumber1,
-                               @RequestParam(value = "remainingNumber") Integer remainingNumber1)
+    public Result borrowedBook(@RequestBody Map map,@RequestParam(value = "bookID",required = false) String bookID1,
+                               @RequestParam(value = "userID",required = false) String userID1,
+                               @RequestParam(value = "num",required = false) Integer num1,
+                               @RequestParam(value = "borrowedNumber",required = false) Integer borrowedNumber1,
+                               @RequestParam(value = "remainingNumber",required = false) Integer remainingNumber1)
     {
         Log log = new Log();
         Result result =new Result();
@@ -457,11 +457,11 @@ public class BookController {
             })
     @PostMapping("/returnBook")
     @ResponseBody
-    public Result returnBook(@RequestBody Map map,@RequestParam(value = "bookID") String bookID1,
-                             @RequestParam(value = "userID") String userID1,
-                             @RequestParam(value = "num") Integer num1,
-                             @RequestParam(value = "borrowedNumber") Integer borrowedNumber1,
-                             @RequestParam(value = "remainingNumber") Integer remainingNumber1)
+    public Result returnBook(@RequestBody Map map,@RequestParam(value = "bookID",required = false) String bookID1,
+                             @RequestParam(value = "userID",required = false) String userID1,
+                             @RequestParam(value = "num",required = false) Integer num1,
+                             @RequestParam(value = "borrowedNumber",required = false) Integer borrowedNumber1,
+                             @RequestParam(value = "remainingNumber",required = false) Integer remainingNumber1)
     {
         Log log = new Log();
         int num = 0;

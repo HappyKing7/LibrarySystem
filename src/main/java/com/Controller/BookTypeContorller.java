@@ -77,8 +77,8 @@ public class BookTypeContorller {
 			})
 	@RequestMapping("/insertBookTypeInfo")
 	@ResponseBody
-	public Result insertBookTypeInfo(@RequestBody Map map,@RequestParam(value = "bookTypeID") String bookTypeID,
-									 @RequestParam(value = "bookTypeName") String bookTypeName)
+	public Result insertBookTypeInfo(@RequestBody Map map,@RequestParam(value = "bookTypeID",required = false) String bookTypeID,
+									 @RequestParam(value = "bookTypeName",required = false) String bookTypeName)
 	{
 		Log log = new Log();
 		Result result =new Result();
@@ -118,7 +118,7 @@ public class BookTypeContorller {
 			})
 	@RequestMapping("/deleteBookTypeInfo")
 	@ResponseBody
-	public Result deleteBookTypeInfo(@RequestBody Map map,@RequestParam(value = "bookTypeID") String bookTypeID1)
+	public Result deleteBookTypeInfo(@RequestBody Map map,@RequestParam(value = "bookTypeID",required = false) String bookTypeID1)
 	{
 		Log log = new Log();
 		String bookTypeID = "";

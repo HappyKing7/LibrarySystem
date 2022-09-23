@@ -75,7 +75,7 @@ public class BorrowedController {
 			})
 	@RequestMapping("/findBorrowedInfosByBorrowedID")
 	@ResponseBody
-	public Result findAllBorrowedInfosByBorrowedID(@RequestBody Map map,@RequestParam(value = "borrowedID") String borrowedID)
+	public Result findAllBorrowedInfosByBorrowedID(@RequestBody Map map,@RequestParam(value = "borrowedID",required = false) String borrowedID)
 	{
 		Log log = new Log();
 		BorrowedInfo bi = new BorrowedInfo();

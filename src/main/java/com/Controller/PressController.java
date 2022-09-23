@@ -77,8 +77,8 @@ public class PressController {
             })
     @PostMapping("/insertPressInfo")
     @ResponseBody
-    public Result insertPressInfo(@RequestBody Map map,@RequestParam(value = "pressID") String pressID,
-                                  @RequestParam(value = "pressName") String pressName)
+    public Result insertPressInfo(@RequestBody Map map,@RequestParam(value = "pressID",required = false) String pressID,
+                                  @RequestParam(value = "pressName",required = false) String pressName)
     {
         Log log = new Log();
         PressInfo pi = new PressInfo();
@@ -119,7 +119,7 @@ public class PressController {
             })
     @PostMapping("/deletePressInfo")
     @ResponseBody
-    public Result deletePressInfo(@RequestBody Map map,@RequestParam(value = "pressID") String pressID1)
+    public Result deletePressInfo(@RequestBody Map map,@RequestParam(value = "pressID",required = false) String pressID1)
     {
         Log log = new Log();
         Result result =new Result();

@@ -103,14 +103,14 @@ public class UserController {
 			})
 	@PostMapping("/userRegister")
 	@ResponseBody
-	public Result userRegister(@RequestBody Map map,@RequestParam(value = "userTYPE") String userTYPE,
-							   @RequestParam(value = "userID") String userID,
-							   @RequestParam(value = "userPassword") String userPassword,
-							   @RequestParam(value = "userName") String userName,
-							   @RequestParam(value = "userGender") String userGender,
-							   @RequestParam(value = "userPsptID") String userPsptID,
-							   @RequestParam(value = "userPhone") String userPhone,
-							   @RequestParam(value = "userEmail") String userEmail) {
+	public Result userRegister(@RequestBody Map map,@RequestParam(value = "userTYPE",required = false) String userTYPE,
+							   @RequestParam(value = "userID",required = false) String userID,
+							   @RequestParam(value = "userPassword",required = false) String userPassword,
+							   @RequestParam(value = "userName",required = false) String userName,
+							   @RequestParam(value = "userGender",required = false) String userGender,
+							   @RequestParam(value = "userPsptID",required = false) String userPsptID,
+							   @RequestParam(value = "userPhone",required = false) String userPhone,
+							   @RequestParam(value = "userEmail",required = false) String userEmail) {
 		Log log =new Log();
 		Result result =new Result();
 		UserRegisterInfo uri = new UserRegisterInfo();
