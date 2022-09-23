@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Mapper.PressMapper">
+    <select id="findAllPressInfos"  resultType="com.Bean.Press.PressInfo">
+        SELECT * FROM PRESS_INFO
+        <choose>
+            <when test= " mode == 0">
+                limit #{current},#{size};
+            </when>
+        </choose>
+    </select>
+
+    <select id="findAllPressInfoByID"  resultType="com.Bean.Press.PressInfo">
+        SELECT * FROM PRESS_INFO WHERE PRESS_ID = #{PRESS_ID}
+    </select>
+
+    <select id="findAllPressInfoByIDOrName"  resultType="com.Bean.Press.PressInfo">
+        select * from PRESS_INFO
+        <choose>
+            <when test= " key != null">
+                WHERE PRESS_ID like '%${key}%' or PRESS_NAME like '%${key}%'
+            </when>
+            <when test= " mode == 0">
+                limit #{current},#{size};
+            </when>
+        </choose>
+    </select>
+
+    <insert id="insertPressInfo" parameterType="com.Bean.Press.PressInfo">
+        INSERT INTO PRESS_INFO VALUES(#{PRESS_ID},#{PRESS_NAME});
+    </insert>
+
+    <delete id="deletePressInfo">
+        delete from PRESS_INFO where PRESS_ID = #{PRESS_ID}
+    </delete>
+</mapper>

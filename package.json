@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "axios": "^0.27.2",
+    "element-plus": "^2.2.17",
+    "qs": "^6.11.0",
+    "vue-axios": "^3.4.1"
+  },
+  "devDependencies": {
+    "mockjs": "^1.1.0"
+  }
+}

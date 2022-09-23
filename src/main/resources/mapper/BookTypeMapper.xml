@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Mapper.BookTypeMapper">
+    <select id="findAllBookTypeInfos"  resultType="com.Bean.BookType.BookTypeInfo">
+        SELECT * FROM BOOK_TYPE_INFO
+        <choose>
+            <when test= " mode == 0">
+                limit #{current},#{size};
+            </when>
+        </choose>
+    </select>
+
+    <select id="findAllBookTypeInfoByBookTypeID"  resultType="com.Bean.BookType.BookTypeInfo">
+        SELECT * FROM BOOK_TYPE_INFO WHERE BOOK_TYPE_ID = #{BOOK_TYPE_ID}
+    </select>
+
+    <select id="findAllBookTypeInfoByIDOrName"  resultType="com.Bean.BookType.BookTypeInfo">
+        select * from BOOK_TYPE_INFO
+        <choose>
+            <when test= " key != null">
+                WHERE BOOK_TYPE_ID like '%${key}%' or BOOK_TYPE_NAME like '%${key}%'
+            </when>
+            <when test= " mode == 0">
+                limit #{current},#{size};
+            </when>
+        </choose>
+    </select>
+
+    <insert id="insertBookTypeInfo" parameterType="com.Bean.BookType.BookTypeInfo">
+        INSERT INTO BOOK_TYPE_INFO VALUES(#{BOOK_TYPE_ID},#{BOOK_TYPE_NAME});
+    </insert>
+
+    <delete id="deleteBookTypeInfo">
+        delete from BOOK_TYPE_INFO where BOOK_TYPE_ID = #{BOOK_TYPE_ID}
+    </delete>
+</mapper>

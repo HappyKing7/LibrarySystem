@@ -1,0 +1,25 @@
+server:
+  port: 8087
+
+spring:
+  security:
+    user:
+      name: user
+      password: 111111
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:D:/Study/Java/DBconnect/H2data/test
+    username: wangxin
+    password: 67813831
+    #初始化数据库
+    schema:
+        - classpath:sql/initTABLE.sql #初始化表
+        #- classpath:sql/insertTable.sql #新增测试数据
+    initialization-mode: ALWAYS
+
+logging:
+  config: classpath:log/logback.xml
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.Bean

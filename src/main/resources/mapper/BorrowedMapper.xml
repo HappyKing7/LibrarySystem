@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Mapper.BorrowedMapper">
+    <select id="findAllBorrowedInfos"  resultType="com.Bean.Borrowed.BorrowedInfo">
+        SELECT * FROM BORROWED_INFO
+        <choose>
+            <when test= " mode == 0">
+                limit #{current},#{size};
+            </when>
+        </choose>
+    </select>
+
+    <select id="findBorrowedInfosByBorrowedID"  resultType="com.Bean.Borrowed.BorrowedInfo">
+        SELECT * FROM BORROWED_INFO WHERE BORROWED_ID = #{BORROWED_ID}
+    </select>
+
+    <select id="findAllBorrowedInfosByUserID"  resultType="com.Bean.Borrowed.BorrowedInfo">
+        SELECT * FROM BORROWED_INFO WHERE USER_ID = #{userID}
+        <choose>
+            <when test= " mode == 2">
+                AND BORROWED_STATUS = '0';
+            </when>
+        </choose>
+        <choose>
+            <when test= " mode == 0">
+                limit #{current},#{size};
+            </when>
+        </choose>
+    </select>
+
+    <update id="updateBorrowedInfosStatus">
+        UPDATE BORROWED_INFO SET BORROWED_STATUS = #{borrowedStatus} WHERE BORROWED_ID = #{borrowedID}
+    </update>
+
+    <insert id="insertBorrowedInfo" parameterType="com.Bean.Borrowed.BorrowedInfo">
+        INSERT INTO BORROWED_INFO VALUES(#{BORROWED_ID},#{USER_ID},#{BOOK_ID},#{BORROWED_NUMBER},
+                                         to_Date(#{BORROWED_START_DATE},'yyyy-MM-dd'),
+                                         to_Date(#{BORROWED_END_DATE},'yyyy-MM-dd'),#{BORROWED_STATUS});
+    </insert>
+
+    <select id="findBorrowedInfosByUserIDAndBorrowedIDAndStatus"  resultType="com.Bean.Borrowed.BorrowedInfo">
+        SELECT * FROM BORROWED_INFO WHERE USER_ID = #{userID} AND BOOK_ID = #{bookID} AND BORROWED_STATUS = #{bookStatus}
+    </select>
+
+    <select id="findBookInfosByBorrowedIDOrUserIDOrBookID" resultType="com.Bean.Borrowed.BorrowedInfo">
+        SELECT * FROM BORROWED_INFO WHERE BORROWED_ID = #{borrowedID} or USER_ID = #{userID} or BOOK_ID = #{bookID}
+        <choose>
+            <when test= " mode == 0">
+                limit #{current},#{size};
+            </when>
+        </choose>
+    </select>
+
+</mapper>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Mapper.UserMapper">
+    <select id="findUserRegisterInfoByUserID" parameterType="com.Bean.User.UserRegisterInfo" resultType="com.Bean.User.UserRegisterInfo">
+        SELECT * FROM USER_LOGIN WHERE USER_ID = #{USER_ID};
+    </select>
+
+    <insert id="insertUserRegisterInfo" parameterType="com.Bean.User.UserRegisterInfo">
+        INSERT INTO USER_LOGIN VALUES (#{USER_ID},#{USER_PASSWORD},#{USER_TYPE},'0');
+    </insert>
+
+    <insert id="insertUserInfo" parameterType="com.Bean.User.UserRegisterInfo">
+        INSERT INTO USER_INFO VALUES (#{USER_ID},#{USER_NAME},#{USER_GENDER},#{USER_PSPT_ID},#{USER_PHONE},#{USER_EMAIL});
+    </insert>
+
+    <select id="findUserLoginInfoByUserIDAndPass" parameterType="com.Bean.User.UserLogin" resultType="com.Bean.User.UserLogin">
+        SELECT * FROM USER_LOGIN WHERE USER_ID = #{USER_ID} AND  USER_PASSWORD = #{USER_PASSWORD};
+    </select>
+
+    <select id="findUserInfoByUserID" resultType="com.Bean.User.UserInfo">
+        SELECT * FROM USER_INFO WHERE USER_ID = #{userID};
+    </select>
+
+    <update id="updayeUserInfo" parameterType="com.Bean.User.UserInfo">
+        UPDATE USER_INFO SET USER_NAME = #{USER_NAME},USER_GENDER = #{USER_GENDER},USER_PSPT_ID = #{USER_PSPT_ID},
+                             USER_PHONE = #{USER_PHONE},USER_EMAIL = #{USER_EMAIL}
+                             WHERE USER_ID = #{USER_ID};
+    </update>
+
+    <update id="updayeUserPassword">
+        UPDATE USER_LOGIN SET USER_PASSWORD = #{newPassWord} WHERE USER_ID = #{userID};
+    </update>
+
+    <select id="getAllUserInfos" resultType="com.Bean.User.UserInfo">
+        SELECT * FROM USER_INFO
+        <choose>
+            <when test= " mode == 0">
+                limit #{current},#{size};
+            </when>
+        </choose>
+    </select>
+
+    <select id="findUserInfoByKey" resultType="com.Bean.User.UserInfo">
+        SELECT * FROM USER_INFO WHERE USER_ID = #{userID} or USER_NAME = #{userNanme} or USER_PHONE = #{userPhone}
+                                   or USER_PSPT_ID = #{userPSPTID} or  USER_EMAIL = #{userEmail}
+        <choose>
+            <when test= " mode == 0">
+                limit #{current},#{size};
+            </when>
+        </choose>
+    </select>
+
+</mapper>
