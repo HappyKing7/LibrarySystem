@@ -29,7 +29,6 @@
         <el-form-item>
           <el-button type="primary" @click="submitLoginForm('loginForm')">提交</el-button>
           <el-button type="primary" @click="dialogVisible = true">注册</el-button>
-          <el-button type="primary" @click="test()">忘记密码</el-button>
         </el-form-item>
       </el-form>
 
@@ -103,9 +102,9 @@ export default {
       return {
         dialogVisible: false,
         loginForm: {
-          userID: 'w962104789',
-          userPassword: '67813831',
-          code: 'test',
+          userID: '',
+          userPassword: '',
+          code: '',
         },
         loginrules: {
           userID: [
@@ -167,7 +166,7 @@ export default {
   },
   methods: {
     submitLoginForm(formName) {
-      if(!(this.loginForm.code.toLowerCase() == this.codeData.toLowerCase()) && this.loginForm.code!='test')
+      if(!(this.loginForm.code.toLowerCase() == this.codeData.toLowerCase()))
       {
         ElMessage.error("验证码不正确")
         this.resetRegisterForm("loginForm")
@@ -230,12 +229,8 @@ export default {
     },
     test()
     {
-      console.log("test")
       this.$axios.post('http://localhost:8087/test/test',this.loginForm).then(res =>{
-        console.log(res)
-        console.log("ok")
       })
-      console.log("test1")
     },
     resetRegisterForm(formName) {
       this.$refs[formName].resetFields();
