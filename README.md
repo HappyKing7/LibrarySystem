@@ -14,7 +14,7 @@
 
 4. 后端启用了日志Slf4j，对出入参，以及中间sql语句的执行都做了说明
 
-5. 项目启动后，使用"http://localhost:8080/login"访问登录页面，使用“http://localhost:8087/swagger-ui.html”可以访问swagger
+5. 项目启动后，使用"http://localhost:8080/login"访问登录页面，使用“http://localhost:8087/swagger-ui.html”可以访问swagger，“http://localhost:8087/h2”访问数据库
     
     5.1 管理员账户密码：admin/admin
     
