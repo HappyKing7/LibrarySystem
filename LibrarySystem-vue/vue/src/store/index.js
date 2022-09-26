@@ -9,6 +9,7 @@ export default createStore({
   getters: {
   },
   mutations: {
+
     SET_TOKEN:(state,token) =>{
       state.token = token
       localStorage.setItem("token",token)
@@ -29,10 +30,11 @@ export default createStore({
       localStorage.setItem("userID",userID)
     },
 
-    resetUserTypeAndUserID:(state)=>{
+    resetUserState:(state)=>{
       state.userType = ''
       state.userID = ''
     },
+
   },
   actions: {
   },
