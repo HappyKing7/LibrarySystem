@@ -341,6 +341,7 @@ public class BookController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "bookID", value = "图书编号",required = true),
             @ApiImplicitParam(name = "userID", value = "借书者编号",required = true),
+            @ApiImplicitParam(name = "status", value = "图书状态",required = true),
             @ApiImplicitParam(name = "num", value = "借阅数量",required = true),
             @ApiImplicitParam(name = "borrowedNumber", value = "书籍借阅数量",required = true),
             @ApiImplicitParam(name = "remainingNumber", value = "书籍剩余数量",required = true),
@@ -354,11 +355,13 @@ public class BookController {
                     @ApiResponse(code = 118, message = "用户有逾期的书籍，不能进行借阅"),
                     @ApiResponse(code = 112, message = "借阅数量大于存书数量"),
                     @ApiResponse(code = 111, message = "该图书已没有存书"),
+                    @ApiResponse(code = 120, message = "该图书已失效，不能借阅"),
             })
     @PostMapping("/borrowedBook")
     @ResponseBody
     public Result borrowedBook(@RequestBody Map map,@RequestParam(value = "bookID",required = false) String bookID1,
                                @RequestParam(value = "userID",required = false) String userID1,
+                               @RequestParam(value = "status",required = false) String status1,
                                @RequestParam(value = "num",required = false) Integer num1,
                                @RequestParam(value = "borrowedNumber",required = false) Integer borrowedNumber1,
                                @RequestParam(value = "remainingNumber",required = false) Integer remainingNumber1)
@@ -366,18 +369,20 @@ public class BookController {
         Log log = new Log();
         Result result =new Result();
 
-        int num = 0;
         String bookID = "";
         String userID ="";
+        String status ="";
+        int num = 0;
         int borrowedNumber = 0;
         int remainingNumber = 0;
 
         if(map.size()!=0){
             log.inputLogMap(map);
             Map bookFormMap = (Map)((Map)map.get("params")).get("updateForm");
-            num = Integer.valueOf(((Map)map.get("params")).get("num").toString());
             bookID = bookFormMap.get("bookID").toString();
             userID = ((Map)map.get("params")).get("user_ID").toString();
+            status = ((Map)map.get("params")).get("status").toString();
+            num = Integer.valueOf(((Map)map.get("params")).get("num").toString());
             borrowedNumber = Integer.valueOf(bookFormMap.get("borrowedNumber").toString());
             remainingNumber = Integer.valueOf(bookFormMap.get("remainingNumber").toString());
         }
@@ -387,13 +392,23 @@ public class BookController {
             userID = userID1;
             borrowedNumber = borrowedNumber1;
             remainingNumber = remainingNumber1;
+            status = status1;
             List list = new ArrayList();
-            list.add(num);
+
             list.add(bookID);
             list.add(userID);
+            list.add(status);
+            list.add(num);
             list.add(borrowedNumber);
             list.add(remainingNumber);
             log.inputLogList(list);
+        }
+
+        if(status.equals("失效"))
+        {
+            result.setCode(120);
+            result.setMsg("该图书已失效，不能借阅");
+            return result;
         }
 
         UserRegisterInfo uri = new UserRegisterInfo();
