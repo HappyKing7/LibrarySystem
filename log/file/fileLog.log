@@ -3626,3 +3626,110 @@ UPDATE AUTHOR_INFO SET AUTHOR_STATUS = ?,PRESS_NAME = ? WHERE AUTHOR_ID = ? [421
 2022-09-27 01:37:06,996 INFO (Log.java:34)- sql:
 2022-09-27 01:37:06,997 INFO (Log.java:28)- 出参类型: class com.Bean.Result
 2022-09-27 01:37:06,997 INFO (Log.java:29)- 出参: {"code":200,"current":1,"data":[{"aUTHOR_ID":"1300000000","aUTHOR_NAME":"罗贯中","bOOK_ID":"9787020070520","bOOK_NAME":"三国演义","bOOK_STATUS":"有效","bOOK_TYPE_ID":"I","bORROWED_NUMBER":1,"pRESS_ID":"9111010140","pRESS_NAME":"人民文学出版社","rEMAINING_NUMBER":9},{"aUTHOR_ID":"1300000001","aUTHOR_NAME":"施耐庵","bOOK_ID":"9787020070521","bOOK_NAME":"水浒传","bOOK_STATUS":"有效","bOOK_TYPE_ID":"I","bORROWED_NUMBER":2,"pRESS_ID":"9111010140","pRESS_NAME":"人民文学出版社","rEMAINING_NUMBER":8},{"aUTHOR_ID":"1300000002","aUTHOR_NAME":"吴承恩","bOOK_ID":"9787020070522","bOOK_NAME":"西游记","bOOK_STATUS":"有效","bOOK_TYPE_ID":"I","bORROWED_NUMBER":5,"pRESS_ID":"9111010140","pRESS_NAME":"人民文学出版社","rEMAINING_NUMBER":5},{"aUTHOR_ID":"1300000003","aUTHOR_NAME":"曹雪芹","bOOK_ID":"9787020070523","bOOK_NAME":"红楼梦","bOOK_STATUS":"有效","bOOK_TYPE_ID":"I","bORROWED_NUMBER":3,"pRESS_ID":"9111010140","pRESS_NAME":"人民文学出版社","rEMAINING_NUMBER":7},{"aUTHOR_ID":"1300000004","aUTHOR_NAME":"马丁·海德格尔","bOOK_ID":"9787020070524","bOOK_NAME":"存在与时间","bOOK_STATUS":"有效","bOOK_TYPE_ID":"B","bORROWED_NUMBER":5,"pRESS_ID":"9111010141","pRESS_NAME":"商务印书馆","rEMAINING_NUMBER":2},{"aUTHOR_ID":"1300000005","aUTHOR_NAME":"柏拉图","bOOK_ID":"9787020070525","bOOK_NAME":"理想国","bOOK_STATUS":"有效","bOOK_TYPE_ID":"B","bORROWED_NUMBER":3,"pRESS_ID":"9111010141","pRESS_NAME":"商务印书馆","rEMAINING_NUMBER":4},{"aUTHOR_ID":"1300000006","aUTHOR_NAME":"兰小欢","bOOK_ID":"9787020070526","bOOK_NAME":"置身事内","bOOK_STATUS":"有效","bOOK_TYPE_ID":"C","bORROWED_NUMBER":3,"pRESS_ID":"9111010142","pRESS_NAME":"上海人民出版社","rEMAINING_NUMBER":2},{"aUTHOR_ID":"1300000007","aUTHOR_NAME":"彼得·海斯勒","bOOK_ID":"9787020070527","bOOK_NAME":"江城","bOOK_STATUS":"有效","bOOK_TYPE_ID":"C","bORROWED_NUMBER":2,"pRESS_ID":"9111010143","pRESS_NAME":"上海译文出版社","rEMAINING_NUMBER":4},{"aUTHOR_ID":"1300000008","aUTHOR_NAME":"亚当·斯密","bOOK_ID":"9787020070528","bOOK_NAME":"国富论","bOOK_STATUS":"有效","bOOK_TYPE_ID":"F","bORROWED_NUMBER":3,"pRESS_ID":"9111010144","pRESS_NAME":"中信出版社","rEMAINING_NUMBER":2},{"aUTHOR_ID":"1300000009","aUTHOR_NAME":"刘素兰","bOOK_ID":"9787020070529","bOOK_NAME":"药剂学(中职药剂)","bOOK_STATUS":"有效","bOOK_TYPE_ID":"R","bORROWED_NUMBER":2,"pRESS_ID":"9111010145","pRESS_NAME":"科学出版社","rEMAINING_NUMBER":4}],"msg":"操作成功","size":10,"total":12}
+2022-09-27 01:37:50,837 INFO (StartupInfoLogger.java:55)- Starting SpringBootTestApplication using Java 1.8.0_291 on DESKTOP-VAETP7D with PID 680 (D:\Study\Java\LibrarySystem\target\classes started by WangXin in D:\Study\Java\LibrarySystem)
+2022-09-27 01:37:50,838 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
+2022-09-27 01:37:50,866 INFO (DeferredLog.java:255)- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-27 01:37:50,866 INFO (DeferredLog.java:255)- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-27 01:37:52,223 INFO (RepositoryConfigurationDelegate.java:132)- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-27 01:37:52,418 INFO (RepositoryConfigurationDelegate.java:201)- Finished Spring Data repository scanning in 189 ms. Found 0 JPA repository interfaces.
+2022-09-27 01:37:52,786 INFO (TomcatWebServer.java:108)- Tomcat initialized with port(s): 8087 (http)
+2022-09-27 01:37:52,792 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-8087"]
+2022-09-27 01:37:52,793 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2022-09-27 01:37:52,793 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.54]
+2022-09-27 01:37:52,894 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2022-09-27 01:37:52,894 INFO (ServletWebServerApplicationContext.java:290)- Root WebApplicationContext: initialization completed in 2028 ms
+2022-09-27 01:37:52,914 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2022-09-27 01:37:53,034 INFO (HikariDataSource.java:123)- HikariPool-1 - Start completed.
+2022-09-27 01:37:53,038 INFO (H2ConsoleAutoConfiguration.java:68)- H2 console available at '/h2'. Database available at 'jdbc:h2:D:/Study/Java/DBconnect/H2data/test'
+2022-09-27 01:37:53,183 INFO (LogHelper.java:31)- HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-27 01:37:53,209 INFO (Version.java:44)- HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-09-27 01:37:53,278 INFO (JavaReflectionManager.java:56)- HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-27 01:37:53,348 INFO (Dialect.java:175)- HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-09-27 01:37:53,486 INFO (JtaPlatformInitiator.java:52)- HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-27 01:37:53,492 INFO (AbstractEntityManagerFactoryBean.java:437)- Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-27 01:37:53,761 WARN (JpaBaseConfiguration.java:219)- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-27 01:37:53,843 INFO (PropertySourcedRequestMappingHandlerMapping.java:69)- Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-09-27 01:37:53,923 INFO (OptionalLiveReloadServer.java:58)- LiveReload server is running on port 35729
+2022-09-27 01:37:54,031 INFO (DirectJDKLog.java:173)- Starting ProtocolHandler ["http-nio-8087"]
+2022-09-27 01:37:54,043 INFO (TomcatWebServer.java:220)- Tomcat started on port(s): 8087 (http) with context path ''
+2022-09-27 01:37:54,044 INFO (DocumentationPluginsBootstrapper.java:160)- Context refreshed
+2022-09-27 01:37:54,054 INFO (DocumentationPluginsBootstrapper.java:163)- Found 1 custom documentation plugin(s)
+2022-09-27 01:37:54,072 INFO (ApiListingReferenceScanner.java:41)- Scanning for api listing references
+2022-09-27 01:37:54,149 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAuthorInfosByKeyUsingPOST_1
+2022-09-27 01:37:54,151 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAuthorInfosByKeyUsingPOST_2
+2022-09-27 01:37:54,153 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAuthorInfosByKeyUsingPOST_3
+2022-09-27 01:37:54,155 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAuthorInfosByKeyUsingPOST_4
+2022-09-27 01:37:54,157 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAuthorInfosByKeyUsingPOST_5
+2022-09-27 01:37:54,159 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAuthorInfosByKeyUsingPOST_6
+2022-09-27 01:37:54,160 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAuthorInfosByKeyUsingPOST_7
+2022-09-27 01:37:54,187 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateAuthorInfoUsingPOST_1
+2022-09-27 01:37:54,187 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateAuthorInfoUsingPOST_2
+2022-09-27 01:37:54,188 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateAuthorInfoUsingPOST_3
+2022-09-27 01:37:54,190 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateAuthorInfoUsingPOST_4
+2022-09-27 01:37:54,191 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateAuthorInfoUsingPOST_5
+2022-09-27 01:37:54,192 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateAuthorInfoUsingPOST_6
+2022-09-27 01:37:54,193 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateAuthorInfoUsingPOST_7
+2022-09-27 01:37:54,236 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findBookTypeInfosByKeyUsingPOST_1
+2022-09-27 01:37:54,237 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findBookTypeInfosByKeyUsingPOST_2
+2022-09-27 01:37:54,238 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findBookTypeInfosByKeyUsingPOST_3
+2022-09-27 01:37:54,239 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findBookTypeInfosByKeyUsingPOST_4
+2022-09-27 01:37:54,240 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findBookTypeInfosByKeyUsingPOST_5
+2022-09-27 01:37:54,241 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findBookTypeInfosByKeyUsingPOST_6
+2022-09-27 01:37:54,242 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findBookTypeInfosByKeyUsingPOST_7
+2022-09-27 01:37:54,250 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: getAllBBookTypeInfosUsingPOST_1
+2022-09-27 01:37:54,251 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: getAllBBookTypeInfosUsingPOST_2
+2022-09-27 01:37:54,251 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: getAllBBookTypeInfosUsingPOST_3
+2022-09-27 01:37:54,252 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: getAllBBookTypeInfosUsingPOST_4
+2022-09-27 01:37:54,252 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: getAllBBookTypeInfosUsingPOST_5
+2022-09-27 01:37:54,253 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: getAllBBookTypeInfosUsingPOST_6
+2022-09-27 01:37:54,253 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: getAllBBookTypeInfosUsingPOST_7
+2022-09-27 01:37:54,256 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: getBookTypeInfosUsingPOST_1
+2022-09-27 01:37:54,257 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: getBookTypeInfosUsingPOST_2
+2022-09-27 01:37:54,258 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: getBookTypeInfosUsingPOST_3
+2022-09-27 01:37:54,261 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: getBookTypeInfosUsingPOST_4
+2022-09-27 01:37:54,262 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: getBookTypeInfosUsingPOST_5
+2022-09-27 01:37:54,263 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: getBookTypeInfosUsingPOST_6
+2022-09-27 01:37:54,263 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: getBookTypeInfosUsingPOST_7
+2022-09-27 01:37:54,271 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: insertBookTypeInfoUsingPOST_1
+2022-09-27 01:37:54,272 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: insertBookTypeInfoUsingPOST_2
+2022-09-27 01:37:54,273 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: insertBookTypeInfoUsingPOST_3
+2022-09-27 01:37:54,273 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: insertBookTypeInfoUsingPOST_4
+2022-09-27 01:37:54,274 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: insertBookTypeInfoUsingPOST_5
+2022-09-27 01:37:54,274 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: insertBookTypeInfoUsingPOST_6
+2022-09-27 01:37:54,275 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: insertBookTypeInfoUsingPOST_7
+2022-09-27 01:37:54,278 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateBookTypeInfoUsingPOST_1
+2022-09-27 01:37:54,278 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateBookTypeInfoUsingPOST_2
+2022-09-27 01:37:54,279 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateBookTypeInfoUsingPOST_3
+2022-09-27 01:37:54,280 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateBookTypeInfoUsingPOST_4
+2022-09-27 01:37:54,281 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateBookTypeInfoUsingPOST_5
+2022-09-27 01:37:54,282 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateBookTypeInfoUsingPOST_6
+2022-09-27 01:37:54,283 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateBookTypeInfoUsingPOST_7
+2022-09-27 01:37:54,292 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAllBorrowedInfosByBorrowedIDUsingPOST_1
+2022-09-27 01:37:54,292 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAllBorrowedInfosByBorrowedIDUsingPOST_2
+2022-09-27 01:37:54,293 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAllBorrowedInfosByBorrowedIDUsingPOST_3
+2022-09-27 01:37:54,293 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAllBorrowedInfosByBorrowedIDUsingPOST_4
+2022-09-27 01:37:54,294 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAllBorrowedInfosByBorrowedIDUsingPOST_5
+2022-09-27 01:37:54,295 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAllBorrowedInfosByBorrowedIDUsingPOST_6
+2022-09-27 01:37:54,295 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAllBorrowedInfosByBorrowedIDUsingPOST_7
+2022-09-27 01:37:54,297 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAllBorrowedInfosByUserIDUsingPOST_1
+2022-09-27 01:37:54,298 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAllBorrowedInfosByUserIDUsingPOST_2
+2022-09-27 01:37:54,299 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAllBorrowedInfosByUserIDUsingPOST_3
+2022-09-27 01:37:54,300 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAllBorrowedInfosByUserIDUsingPOST_4
+2022-09-27 01:37:54,301 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAllBorrowedInfosByUserIDUsingPOST_5
+2022-09-27 01:37:54,301 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAllBorrowedInfosByUserIDUsingPOST_6
+2022-09-27 01:37:54,302 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findAllBorrowedInfosByUserIDUsingPOST_7
+2022-09-27 01:37:54,309 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findBorrowedInfosByKeyUsingPOST_1
+2022-09-27 01:37:54,310 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findBorrowedInfosByKeyUsingPOST_2
+2022-09-27 01:37:54,311 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findBorrowedInfosByKeyUsingPOST_3
+2022-09-27 01:37:54,312 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findBorrowedInfosByKeyUsingPOST_4
+2022-09-27 01:37:54,313 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findBorrowedInfosByKeyUsingPOST_5
+2022-09-27 01:37:54,313 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findBorrowedInfosByKeyUsingPOST_6
+2022-09-27 01:37:54,314 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: findBorrowedInfosByKeyUsingPOST_7
+2022-09-27 01:37:54,324 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateBorrowedInfosStatusUsingPOST_1
+2022-09-27 01:37:54,324 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateBorrowedInfosStatusUsingPOST_2
+2022-09-27 01:37:54,325 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateBorrowedInfosStatusUsingPOST_3
+2022-09-27 01:37:54,325 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateBorrowedInfosStatusUsingPOST_4
+2022-09-27 01:37:54,325 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateBorrowedInfosStatusUsingPOST_5
+2022-09-27 01:37:54,326 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateBorrowedInfosStatusUsingPOST_6
+2022-09-27 01:37:54,326 INFO (CachingOperationNameGenerator.java:40)- Generating unique operation named: updateBorrowedInfosStatusUsingPOST_7
+2022-09-27 01:37:54,367 INFO (StartupInfoLogger.java:61)- Started SpringBootTestApplication in 3.807 seconds (JVM running for 4.54)

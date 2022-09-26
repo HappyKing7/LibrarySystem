@@ -49,6 +49,17 @@ public class AuthorController {
         log.functionLog("分页查询所有作者信息");
         List<AuthorInfo> ai = as.findAllAuthorInfos((current-1)*size,size,0);
         if(ai.size()!=0) {
+            for (int i = 0; i < ai.size(); i++) {
+                if(ai.get(i).getAUTHOR_STATUS().equals("0"))
+                {
+                    ai.get(i).setAUTHOR_STATUS("有效");
+                }
+                else if(ai.get(i).getAUTHOR_STATUS().equals("1"))
+                {
+                    ai.get(i).setAUTHOR_STATUS("失效");
+                }
+            }
+
             result.setCode(200);
             result.setMsg("操作成功");
             result.setData(ai);
@@ -113,37 +124,30 @@ public class AuthorController {
         return result;
     }
 
-    @ApiOperation(value="删除作者信息", notes = "根据作者编号删除作者信息",httpMethod = "POST")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "authorID", value = "作者编号",required = true),
+    @ApiOperation(value="修改作者信息", notes = "根据作者编号修改作者信息",httpMethod = "POST")
+    @ApiJsonModel({
+            @ApiModelProperty(name = "authorID", value = "出版社编号",required = true),
+            @ApiModelProperty(name = "authorName", value = "出版社名称",required = true),
+            @ApiModelProperty(name = "authorStatus", value = "状态",required = true),
     })
     @ApiResponses(
             value = {
-                    @ApiResponse(code = 200, message = "操作成功"),
+                    @ApiResponse(code = 200, message = "修改成功"),
             })
-    @RequestMapping("/deleteAuthorInfo")
+    @RequestMapping("/updateAuthorInfo")
     @ResponseBody
-    public Result deleteAuthorInfo(@RequestBody Map map,@RequestParam(value = "authorID",required = false) String authorID1)
+    public Result updateAuthorInfo(@RequestBody Map map)
     {
         Log log = new Log();
-        String authorID = "";
-        if(map.size()!=0)
-        {
-            log.inputLogMap(map);
-            authorID = ((Map)map.get("params")).get("author_ID").toString();
-        }
-        else{
-            List list = new ArrayList();
-            list.add(authorID);
-            authorID = authorID1;
-        }
-
-        log.functionLog("根据作者编号删除作者信息");
-        as.deleteAuthorInfo(authorID);
+        log.inputLogMap(map);
         Result result =new Result();
+
+        AuthorInfo ai = JSON.parseObject(JSON.toJSONString(map),AuthorInfo.class);
+        log.functionLog("修改作者信息");
+        as.updateAuthorInfo(ai);
+
         result.setCode(200);
         result.setMsg("操作成功");
-
         log.outPutLog(result);
         return result;
     }
