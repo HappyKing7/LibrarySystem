@@ -27,10 +27,10 @@
     </select>
 
     <insert id="insertPressInfo" parameterType="com.Bean.Press.PressInfo">
-        INSERT INTO PRESS_INFO VALUES(#{PRESS_ID},#{PRESS_NAME});
+        INSERT INTO PRESS_INFO VALUES(#{PRESS_ID},#{PRESS_NAME},'0');
     </insert>
 
-    <delete id="deletePressInfo">
-        delete from PRESS_INFO where PRESS_ID = #{PRESS_ID}
-    </delete>
+    <update id="updatePressInfo">
+        UPDATE PRESS_INFO SET PRESS_STATUS = #{PRESS_STATUS},PRESS_NAME = #{PRESS_NAME} WHERE PRESS_ID = #{PRESS_ID}
+    </update>
 </mapper>

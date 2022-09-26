@@ -34,7 +34,7 @@ public class AuthorServicelmpl implements AuthorService {
 	}
 
 	@Override
-	public void deleteAuthorInfo(String authorID) {
-		am.deleteAuthorInfo(authorID);
+	public void updateAuthorInfo(AuthorInfo ai) {
+		am.updateAuthorInfo(ai);
 	}
 }

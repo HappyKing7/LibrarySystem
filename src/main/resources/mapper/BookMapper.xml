@@ -15,6 +15,7 @@
             <choose>
             <when test= " key != null">
                 WHERE BOOK_ID like '%${key}%' or BOOK_NAME like '%${key}%'
+                   or AUTHOR_ID like '%${key}%' or PRESS_ID like '%${key}%'
             </when>
             <when test= " mode == 0">
                 limit #{current},#{size};
@@ -26,9 +27,9 @@
         SELECT * FROM BOOK_INFO WHERE BOOK_ID = #{key}
     </select>
 
-    <delete id="deleteBookInfo">
-        delete from BOOK_INFO where BOOK_ID = #{bookID}
-    </delete>
+    <update id="deleteBookInfo">
+        UPDATE BOOK_INFO SET BOOK_STATUS = '1' where BOOK_ID = #{bookID}
+    </update>
 
     <insert id="insertBookInfo" parameterType="com.Bean.Book.BookInfos">
         INSERT INTO BOOK_INFO VALUES(#{BOOK_ID},#{BOOK_NAME},#{BOOK_TYPE_ID},#{AUTHOR_ID},#{PRESS_ID},0,#{REMAINING_NUMBER},'0');

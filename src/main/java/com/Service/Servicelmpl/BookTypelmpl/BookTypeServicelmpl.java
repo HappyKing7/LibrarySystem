@@ -34,7 +34,7 @@ public class BookTypeServicelmpl implements BookTypeService {
 	}
 
 	@Override
-	public void deleteBookTypeInfo(String bookTypeID) {
-		bym.deleteBookTypeInfo(bookTypeID);
+	public void updateBookTypeInfo(BookTypeInfo bti) {
+		bym.updateBookTypeInfo(bti);
 	}
 }

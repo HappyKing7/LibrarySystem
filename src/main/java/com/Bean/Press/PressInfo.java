@@ -3,6 +3,15 @@ package com.Bean.Press;
 public class PressInfo {
 	private String PRESS_ID;
 	private String PRESS_NAME;
+	private String PRESS_STATUS;
+
+	public String getPRESS_STATUS() {
+		return PRESS_STATUS;
+	}
+
+	public void setPRESS_STATUS(String PRESS_STATUS) {
+		this.PRESS_STATUS = PRESS_STATUS;
+	}
 
 	public String getPRESS_ID() {
 		return PRESS_ID;

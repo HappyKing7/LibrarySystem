@@ -25,14 +25,16 @@ CREATE TABLE IF NOT EXISTS AUTHOR_INFO  --作者信息表
 (
     AUTHOR_ID VARCHAR2(10) NOT NULL,     --作者编号
     AUTHOR_NAME VARCHAR2(50) NOT NULL,   --作者名称
+    AUTHOR_STATUS CHAR(1) NOT NULL,      --作者信息状态 0：正常，1：失效
     PRIMARY KEY (AUTHOR_ID)
 );
 
 
-CREATE TABLE IF NOT EXISTS PRESS_INFO   --出版社信息表
+CREATE TABLE IF NOT EXISTS PRESS_INFO       --出版社信息表
 (
-    PRESS_ID VARCHAR2(10) NOT NULL,      --出版社编号
-    PRESS_NAME VARCHAR2(50) NOT NULL, --出版社名称
+    PRESS_ID VARCHAR2(10) NOT NULL,         --出版社编号
+    PRESS_NAME VARCHAR2(50) NOT NULL,       --出版社名称
+    PRESS_STATUS CHAR(1) NOT NULL,          --出版社信息状态 0：正常，1：失效
     PRIMARY KEY (PRESS_ID)
 );
 
@@ -41,6 +43,7 @@ CREATE TABLE IF NOT EXISTS BOOK_TYPE_INFO   --图书类型信息表
 (
     BOOK_TYPE_ID CHAR(1) NOT NULL,          --图书类型编号
     BOOK_TYPE_NAME VARCHAR2(50) NOT NULL,   --图书类型名称
+    BOOK_TYPE_STATUS CHAR(1) NOT NULL,      --图书类型信息状态 0：正常，1：失效
     PRIMARY KEY (BOOK_TYPE_ID)
 );
 

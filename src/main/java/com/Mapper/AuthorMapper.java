@@ -11,5 +11,6 @@ public interface AuthorMapper {
 	List<AuthorInfo> findAllAuthorInfoByAuthorID(String authorID);
 	List<AuthorInfo> findAllAuthorInfoByIDOrName(String key,Integer current, Integer size,Integer mode);
 	void insertAuthorInfo(AuthorInfo ai);
-	void deleteAuthorInfo(String authorID);
+	void updateAuthorInfo(AuthorInfo ai);
+
 }

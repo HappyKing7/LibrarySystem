@@ -9,5 +9,5 @@ public interface BookTypeService {
 	List<BookTypeInfo> findAllBookTypeInfoByBookTypeID(String bookTypeID);
 	List<BookTypeInfo> findAllBookTypeInfoByIDOrName(String key, Integer current, Integer size, Integer mode);
 	void insertBookTypeInfo(BookTypeInfo bti);
-	void deleteBookTypeInfo(String bookTypeID);
+	void updateBookTypeInfo(BookTypeInfo bti);
 }

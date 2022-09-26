@@ -103,7 +103,7 @@ public class BookController {
         return result;
     }
 
-    @ApiOperation(value="关键字查询作者信息", notes = "根据关键字查询作者信息",httpMethod = "POST")
+    @ApiOperation(value="关键字查询图书信息", notes = "根据关键字查询图书信息",httpMethod = "POST")
     @ApiJsonModel({
             @ApiModelProperty(name = "key", value = "搜索关键字",required = true),
             @ApiModelProperty(name = "current", value = "当前页数",required = true),
@@ -136,16 +136,48 @@ public class BookController {
             size = Integer.valueOf(map.get("size").toString());
         }
 
-        log.functionLog("关键字分页查询作者信息");
+        log.functionLog("根据作者名称获取作者编号");
+        List<AuthorInfo> ais = as.findAllAuthorInfoByIDOrName(key,(current-1)*size,size,0);
+        if(ais.size()!=0){
+            key = ais.get(0).getAUTHOR_ID();
+        }
+
+        log.functionLog("根据出版社名称获取出版社编号");
+        List<PressInfo> pis = ps.findAllPressInfoByIDOrName(key,(current-1)*size,size,0);
+        if(pis.size()!=0){
+            key = pis.get(0).getPRESS_ID();
+        }
+
+        log.functionLog("关键字分页查询图书信息");
         List<BookInfos> bks = bs.findBookInfosByKey(key,(current-1)*size,size,1);
         if(bks.size()!=0)
         {
+            log.functionLog("获取作者名称和出版社名称");
+            for (int i = 0; i < bks.size(); i++) {
+                List<AuthorInfo> ai = as.findAllAuthorInfoByAuthorID(bks.get(i).getAUTHOR_ID());
+                if(ai.size()!=0){
+                    bks.get(i).setAUTHOR_NAME(ai.get(0).getAUTHOR_NAME());
+                }
+                List<PressInfo> pi = ps.findAllPressInfoByID(bks.get(i).getPRESS_ID());
+                if(pi.size()!=0){
+                    bks.get(i).setPRESS_NAME(pi.get(0).getPRESS_NAME());
+                }
+
+                if(bks.get(i).getBOOK_STATUS().equals("0"))
+                {
+                    bks.get(i).setBOOK_STATUS("有效");
+                }else if(bks.get(i).getBOOK_STATUS().equals("1"))
+                {
+                    bks.get(i).setBOOK_STATUS("失效");
+                }
+            }
+
             result.setCode(200);
             result.setMsg("操作成功");
             result.setData(bks);
             result.setSize(size);
             result.setCurrent(current);
-            log.functionLog("关键字查询作者信息数量");
+            log.functionLog("关键字查询图书信息数量");
             result.setTotal(bs.findBookInfosByKey(key,(current-1)*size,size,0).size());
         }
         else {

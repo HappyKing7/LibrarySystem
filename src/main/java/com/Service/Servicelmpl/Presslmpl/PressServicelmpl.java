@@ -35,7 +35,7 @@ public class PressServicelmpl implements PressService {
 	}
 
 	@Override
-	public void deletePressInfo(String pressID) {
-		pm.deletePressInfo(pressID);
+	public void updatePressInfo(PressInfo pi) {
+		pm.updatePressInfo(pi);
 	}
 }

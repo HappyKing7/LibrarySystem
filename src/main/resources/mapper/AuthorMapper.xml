@@ -27,10 +27,10 @@
     </select>
 
     <insert id="insertAuthorInfo" parameterType="com.Bean.Author.AuthorInfo">
-        INSERT INTO AUTHOR_INFO VALUES(#{AUTHOR_ID},#{AUTHOR_NAME});
+        INSERT INTO AUTHOR_INFO VALUES(#{AUTHOR_ID},#{AUTHOR_NAME},'0');
     </insert>
 
-    <delete id="deleteAuthorInfo">
-        delete from AUTHOR_INFO where AUTHOR_ID = #{AUTHOR_ID}
-    </delete>
+    <update id="updateAuthorInfo">
+        UPDATE AUTHOR_INFO SET AUTHOR_STATUS = #{AUTHOR_STATUS},AUTHOR_NAME = #{AUTHOR_NAME} WHERE AUTHOR_ID = #{AUTHOR_ID}
+    </update>
 </mapper>

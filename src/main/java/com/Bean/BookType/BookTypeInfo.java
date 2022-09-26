@@ -3,6 +3,15 @@ package com.Bean.BookType;
 public class BookTypeInfo {
 	private String BOOK_TYPE_ID;
 	private String BOOK_TYPE_NAME;
+	private String BOOK_TYPE_STATUS;
+
+	public String getBOOK_TYPE_STATUS() {
+		return BOOK_TYPE_STATUS;
+	}
+
+	public void setBOOK_TYPE_STATUS(String BOOK_TYPE_STATUS) {
+		this.BOOK_TYPE_STATUS = BOOK_TYPE_STATUS;
+	}
 
 	public String getBOOK_TYPE_ID() {
 		return BOOK_TYPE_ID;

@@ -45,15 +45,26 @@ public class BookTypeContorller {
 		Result result =new Result();
 
 		log.functionLog("分页查询所有图书类型信息");
-		List<BookTypeInfo> ai = bts.findAllBookTypeInfos((current-1)*size,size,0);
-		if(ai.size()!=0) {
-			log.functionLog("查询所有图书类型信息数量");
-			result.setTotal(bts.findAllBookTypeInfos((current-1)*size,size,1).size());
+		List<BookTypeInfo> bti = bts.findAllBookTypeInfos((current-1)*size,size,0);
+		if(bti.size()!=0) {
+			for (int i = 0; i < bti.size(); i++) {
+				if(bti.get(i).getBOOK_TYPE_STATUS().equals("0"))
+				{
+					bti.get(i).setBOOK_TYPE_STATUS("有效");
+				}
+				else if(bti.get(i).getBOOK_TYPE_STATUS().equals("1"))
+				{
+					bti.get(i).setBOOK_TYPE_STATUS("失效");
+				}
+			}
+
 			result.setCode(200);
 			result.setMsg("操作成功");
-			result.setData(ai);
+			result.setData(bti);
 			result.setSize(size);
 			result.setCurrent(current);
+			log.functionLog("查询所有图书类型信息数量");
+			result.setTotal(bts.findAllBookTypeInfos((current-1)*size,size,1).size());
 		}
 		else {
 			result.setCode(103);
@@ -108,35 +119,27 @@ public class BookTypeContorller {
 		return result;
 	}
 
-	@ApiOperation(value="删除图书类型信息", notes = "根据图书类型编号删除图书类型信息",httpMethod = "POST")
-	@ApiImplicitParams({
-			@ApiImplicitParam(name = "bookTypeID", value = "图书类型编号",required = true),
+	@ApiOperation(value="修改图书类型信息", notes = "根据图书类型编号修改图书类型信息",httpMethod = "POST")
+	@ApiJsonModel({
+			@ApiModelProperty(name = "bookTypeID", value = "图书类型编号",required = true),
+			@ApiModelProperty(name = "bookTypeName", value = "图书类型名称",required = true),
+			@ApiModelProperty(name = "bookTypeStatus", value = "状态",required = true),
 	})
 	@ApiResponses(
 			value = {
 					@ApiResponse(code = 200, message = "操作成功"),
 			})
-	@RequestMapping("/deleteBookTypeInfo")
+	@RequestMapping("/updateBookTypeInfo")
 	@ResponseBody
-	public Result deleteBookTypeInfo(@RequestBody Map map,@RequestParam(value = "bookTypeID",required = false) String bookTypeID1)
+	public Result updateBookTypeInfo(@RequestBody Map map)
 	{
 		Log log = new Log();
-		String bookTypeID = "";
-		if(map.size()!=0)
-		{
-			bookTypeID = ((Map)map.get("params")).get("book_TYPE_ID").toString();
-			log.inputLogMap(map);
-		}
-		else{
-			bookTypeID = bookTypeID1;
-			List list = new ArrayList();
-			list.add(bookTypeID);
-			log.inputLogList(list);
-		}
-
-		log.functionLog("删除图书类型信息");
-		bts.deleteBookTypeInfo(bookTypeID);
+		log.inputLogMap(map);
 		Result result =new Result();
+
+		BookTypeInfo bti = JSON.parseObject(JSON.toJSONString(map),BookTypeInfo.class);
+		log.functionLog("修改图书类型信息");
+		bts.updateBookTypeInfo(bti);
 		result.setCode(200);
 		result.setMsg("操作成功");
 
@@ -214,12 +217,12 @@ public class BookTypeContorller {
 		Result result =  new Result();
 
 		log.functionLog("分页查询所有图书类型信息");
-		List<BookTypeInfo> ai = bts.findAllBookTypeInfos(0,0,1);
-		if(ai.size()!=0) {
+		List<BookTypeInfo> bti = bts.findAllBookTypeInfos(0,0,1);
+		if(bti.size()!=0) {
 			log.functionLog("查询所有图书类型信息数量");
 			result.setCode(200);
 			result.setMsg("操作成功");
-			result.setData(ai);
+			result.setData(bti);
 		}
 		else{
 			result.setCode(103);

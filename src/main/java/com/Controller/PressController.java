@@ -47,6 +47,17 @@ public class PressController {
         log.functionLog("分页查询出版社信息");
         List<PressInfo> ai = ps.findAllPressInfos((current-1)*size,size,0);
         if(ai.size()!=0) {
+            for (int i = 0; i < ai.size(); i++) {
+                if(ai.get(i).getPRESS_STATUS().equals("0"))
+                {
+                    ai.get(i).setPRESS_STATUS("有效");
+                }
+                else if(ai.get(i).getPRESS_STATUS().equals("1"))
+                {
+                    ai.get(i).setPRESS_STATUS("失效");
+                }
+            }
+
             result.setCode(200);
             result.setMsg("操作成功");
             result.setData(ai);
@@ -108,39 +119,30 @@ public class PressController {
         return result;
     }
 
-    @ApiOperation(value="删除出版社信息", notes = "根据出版社编号删除出版社信息",httpMethod = "POST")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "pressID", value = "出版社编号",required = true),
+    @ApiOperation(value="修改出版社信息", notes = "根据出版社编号修改出版社信息",httpMethod = "POST")
+    @ApiJsonModel({
+            @ApiModelProperty(name = "pressID", value = "出版社编号",required = true),
+            @ApiModelProperty(name = "pressName", value = "出版社名称",required = true),
+            @ApiModelProperty(name = "pressStatus", value = "状态",required = true),
     })
     @ApiResponses(
             value = {
-                    @ApiResponse(code = 200, message = "新增成功"),
-                    @ApiResponse(code = 109, message = "出版社信息已存在"),
+                    @ApiResponse(code = 200, message = "修改成功"),
             })
-    @PostMapping("/deletePressInfo")
+    @PostMapping("/updatePressInfo")
     @ResponseBody
-    public Result deletePressInfo(@RequestBody Map map,@RequestParam(value = "pressID",required = false) String pressID1)
+    public Result updatePressInfo(@RequestBody Map map)
     {
         Log log = new Log();
+        log.inputLogMap(map);
         Result result =new Result();
-        String pressID = "";
-        if(map.size()!=0)
-        {
-            pressID = ((Map)map.get("params")).get("press_ID").toString();
-            log.inputLogMap(map);
-        }
-        else{
-            pressID = pressID1;
-            List list = new ArrayList();
-            list.add(pressID);
-            log.inputLogList(list);
-        }
 
-        log.functionLog("删除出版社信息");
-        ps.deletePressInfo(pressID);
+        PressInfo pi = JSON.parseObject(JSON.toJSONString(map),PressInfo.class);
+        log.functionLog("修改出版社信息");
+        ps.updatePressInfo(pi);
+
         result.setCode(200);
         result.setMsg("操作成功");
-
         log.outPutLog(result);
         return result;
     }
@@ -180,12 +182,12 @@ public class PressController {
         }
 
         log.functionLog("根据出关键字分页查询出版社信息");
-        List<PressInfo> ais = ps.findAllPressInfoByIDOrName(key,(current-1)*size,size,0);
-        if(ais.size()!=0)
+        List<PressInfo> pi = ps.findAllPressInfoByIDOrName(key,(current-1)*size,size,0);
+        if(pi.size()!=0)
         {
             result.setCode(200);
             result.setMsg("操作成功");
-            result.setData(ais);
+            result.setData(pi);
             result.setSize(size);
             result.setCurrent(current);
             log.functionLog("根据出关键字查询出版社信息数量");

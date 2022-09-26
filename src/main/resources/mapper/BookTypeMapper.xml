@@ -27,10 +27,11 @@
     </select>
 
     <insert id="insertBookTypeInfo" parameterType="com.Bean.BookType.BookTypeInfo">
-        INSERT INTO BOOK_TYPE_INFO VALUES(#{BOOK_TYPE_ID},#{BOOK_TYPE_NAME});
+        INSERT INTO BOOK_TYPE_INFO VALUES(#{BOOK_TYPE_ID},#{BOOK_TYPE_NAME},'0');
     </insert>
 
-    <delete id="deleteBookTypeInfo">
-        delete from BOOK_TYPE_INFO where BOOK_TYPE_ID = #{BOOK_TYPE_ID}
-    </delete>
+    <update id="updateBookTypeInfo">
+        UPDATE BOOK_TYPE_INFO SET BOOK_TYPE_STATUS = #{BOOK_TYPE_STATUS},
+                                  BOOK_TYPE_NAME = #{BOOK_TYPE_NAME} WHERE BOOK_TYPE_ID = #{BOOK_TYPE_ID}
+    </update>
 </mapper>

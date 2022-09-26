@@ -10,5 +10,5 @@ public interface PressMapper {
 	List<PressInfo> findAllPressInfoByIDOrName(String key,Integer current, Integer size,Integer mode);
 	List<PressInfo> findAllPressInfoByID(String pressID);
 	void insertPressInfo(PressInfo pi);
-	void deletePressInfo(String pressID);
+	void updatePressInfo(PressInfo pi);
 }
